@@ -34,11 +34,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto d-inline-flex align-items-center">
+                        <li class="nav-item">
+                            <a href="{{ route('home') }}">Home</a>
+                        </li>
+                        <li class="nav-item ml-4">
+                            <a href="{{ route('api-token') }}">API Token</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -53,7 +59,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown ml-4">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -71,6 +77,7 @@
                                 </div>
                             </li>
                         @endguest
+                        
                     </ul>
                 </div>
             </div>

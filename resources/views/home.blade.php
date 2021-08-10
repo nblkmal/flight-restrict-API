@@ -18,12 +18,10 @@
                     {{-- {{ __('You are logged in!') }} --}}
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <passport-component></passport-component>
-                </div>
-                
-            </div>
+            <h4 class="text-center mt-3" style="font-family: 'Poppins', sans-serif;">About this API</h4>
+            <ul>
+                <li>Collection of all flight restrict area in Malaysia</li>
+            </ul>
         </div>
     </div>
 </div>
