@@ -45,6 +45,9 @@
                         <li class="nav-item ml-4">
                             <a href="{{ route('api-token') }}">API Token</a>
                         </li>
+                        <li class="nav-item ml-4">
+                            <a href="{{ route('api-token') }}">API Docs</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
