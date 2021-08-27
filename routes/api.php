@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// add middleware last sekali
 Route::prefix('v1')->group(function () {
     Route::get('/places', [App\Http\Controllers\API\PlaceController::class, 'index']);
+    Route::get('/coordinates', [App\Http\Controllers\API\CoordinateController::class, 'index']);
 });
