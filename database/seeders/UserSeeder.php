@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -19,13 +20,13 @@ class UserSeeder extends Seeder
                 'id' => 1,
                 'name' => 'Nabil',
                 'email' => 'nblkmal@gmail.com',
-                'password' => 'password'
+                'password' => Hash::make('password')
             ],
             [
                 'id' => 2,
                 'name' => 'Aqil',
                 'email' => 'aqilat94@gmail.com',
-                'password' => 'password'
+                'password' => Hash::make('password')
             ],
         ]);
     }
