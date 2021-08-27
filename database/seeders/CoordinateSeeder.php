@@ -26,6 +26,12 @@ class CoordinateSeeder extends Seeder
                 'latitude' => '2.945374429829839',
                 'longitude' => '101.70083299790008',
                 'place_id' => 2
+            ],
+            [
+                'id' => 3,
+                'latitude' => '3.0361421249024567',
+                'longitude' => '101.44828958677152',
+                'place_id' => 3
             ]
         ]);
     }

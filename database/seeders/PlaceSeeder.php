@@ -18,13 +18,22 @@ class PlaceSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => 'Istana Negara',
+                'state' => 'Kuala Lumpur',
                 'description' => 'Istana di Kuala Lumpur',
                 'type_id' => 1
             ],
             [
                 'id' => 2,
                 'name' => 'Istana Melawati',
-                'description' => 'Istana 2 di Putrajaya',
+                'state' => 'Kuala Lumpur',
+                'description' => 'Istana di Putrajaya',
+                'type_id' => 1
+            ],
+            [
+                'id' => 3,
+                'name' => 'Istana Alam Shah',
+                'state' => 'Selangor',
+                'description' => 'Istana di Selangor',
                 'type_id' => 1
             ]
         ]);
