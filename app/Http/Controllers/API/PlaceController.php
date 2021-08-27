@@ -15,7 +15,7 @@ class PlaceController extends Controller
         // dd($places);
         return response()->json([
             'success' => true,
-            'message' => 'Success fetch all users',
+            'message' => 'Success fetch all places',
             'data' => $places
         ]);
     }
