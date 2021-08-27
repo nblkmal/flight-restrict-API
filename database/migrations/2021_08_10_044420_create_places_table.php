@@ -16,6 +16,7 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('state');
             $table->string('description');
             $table->unsignedInteger('type_id');
             $table->foreign('type_id')->references('id')->on('types');
