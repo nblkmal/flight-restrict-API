@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/API-token', [App\Http\Controllers\TokenController::class, 'index'])->name('api-token');
-
+Route::get('/API-token', [App\Http\Controllers\TokenController::class, 'index'])->name('api:token');
+Route::get('/API-docs', [App\Http\Controllers\DocumentationController::class, 'index'])->name('api:docs');
