@@ -32,6 +32,7 @@
                         <button class="btn btn-outline-primary px-5">GET</button>
                         {{-- <p>The HTML <code>button</code> tag defines a clickable button.</p> --}}
                         <p class="m-0 ml-4">api/v1/coordinates</p>
+                        <i class='bx bx-user'></i>
                     </div>
                 </div>
             </div>
