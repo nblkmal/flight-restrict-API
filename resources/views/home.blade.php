@@ -5,12 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div class="my-2" style="font-family: 'Poppins', sans-serif;">
+                {{-- Guna permission --}}
                 @role('admin')
                     <h2>Hi Admin! Welcome to Flight Restriction API</h2>
 
                 @else
                     <h2>Hi {{ auth()->user()->name }} ! Welcome to Flight Restriction API</h2>
-
+                    <small>This is normal user</small>
                 @endrole
             </div>
             <div>
