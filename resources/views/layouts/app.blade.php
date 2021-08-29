@@ -20,12 +20,39 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
+<style>
+    body {
+        background-color: #222831;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    a, label, h1, p{
+        color: white;
+    }
+
+    a:hover {
+        color: #D65A31;
+        text-decoration: none;
+    }
+
+    .card {
+        background-color: #393E46 !important;
+        border-radius: 15px !important;
+    }
+
+    button, input{
+        border-radius: 10px !important;
+    }
+</style>
+
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm py-3">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="" href="{{ url('/') }}" style="font-weight: 600; color: #D65A31;">
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                    Flight Restrict API
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -43,22 +70,22 @@
                             <a href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item ml-4">
-                            <a href="{{ route('api-token') }}">API Token</a>
+                            <a href="{{ route('api:token') }}">API Token</a>
                         </li>
                         <li class="nav-item ml-4">
-                            <a href="{{ route('api-token') }}">API Docs</a>
+                            <a href="{{ route('api:docs') }}">API Docs</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <li class="nav-item ml-4">
+                                    <a class="" href="{{ route('login') }}">Login</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <li class="nav-item ml-4">
+                                    <a class="" href="{{ route('register') }}">Register</a>
                                 </li>
                             @endif
                         @else
