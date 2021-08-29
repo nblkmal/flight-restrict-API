@@ -8,10 +8,15 @@ use App\Http\Controllers\Controller;
 
 class PlaceController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $places = Place::with('type')->get();
-
+        // dd($request->search)
+        if($request->search)
+        {
+            $places = Place::where('name', 'LIKE', '%'.$request->search.'%')->get();
+        } else {
+            $places = Place::with('type')->get();
+        }
         // dd($places);
         return response()->json([
             'success' => true,

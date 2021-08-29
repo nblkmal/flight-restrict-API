@@ -8,9 +8,14 @@ use App\Http\Controllers\Controller;
 
 class CoordinateController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $coordinates = Coordinate::with('place.type')->get();
+        if($request->search)
+        {
+            $cars = Coordinate::where('name', 'LIKE', '%'.$request->search.'%');
+        } else {
+            $coordinates = Coordinate::with('place.type')->get();
+        }
 
         return response()->json([
             'success' => true,
