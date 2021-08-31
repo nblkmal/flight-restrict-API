@@ -21,8 +21,10 @@ class DatabaseSeeder extends Seeder
         $this->call([UserSeeder::class]);
         $this->call([RoleSeeder::class]);
         $this->call([ModelHasRoleSeeder::class]);
+        $this->call([CategorySeeder::class]);
         $this->call([TypeSeeder::class]);
-        $this->call([PlaceSeeder::class]);
-        $this->call([CoordinateSeeder::class]);
+        $this->call([StateSeeder::class]);
+        // $this->call([PlaceSeeder::class]);
+        // $this->call([CoordinateSeeder::class]);
     }
 }
