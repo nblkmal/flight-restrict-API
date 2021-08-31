@@ -21,4 +21,9 @@ class Place extends Model
         return $this->belongsTo(Type::class, 'type_id');
     }
 
+    public function coordinates()
+    {
+        return $this->hasMany(Coordinate::class);
+    }
+
 }
