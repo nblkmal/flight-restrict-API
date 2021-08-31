@@ -16,10 +16,14 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('state');
-            $table->string('description');
+            $table->unsignedInteger('state_id');
+            // $table->string('description');
             $table->unsignedInteger('type_id');
+            $table->unsignedInteger('category_id');
+
+            $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
