@@ -45,7 +45,6 @@ class DonateController extends Controller
             'amount' => $amount,
         ]);
 
-        
         // create bill at toyyibpay
         $url = 'https://dev.toyyibpay.com/index.php/api/createBill';
 
@@ -69,8 +68,8 @@ class DonateController extends Controller
             'toyyibPay_bill_code' => $response->json()[0]['BillCode'],
         ]);
 
-        return redirect()->route('home');
-
+        return 'https://dev.toyyibpay.com/'.$donate->toyyibPay_bill_code;
+        // return redirect()->route('home');
     }
 
     /**
