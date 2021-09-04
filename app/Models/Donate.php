@@ -15,4 +15,10 @@ class Donate extends Model
         'payment_status',
         'toyyibPay_bill_code',
     ];
+
+    // payment_link
+    public function getPaymentLinkAttribute()
+    {
+        return 'https://dev.toyyibpay.com/'.$this->toyyibPay_bill_code;
+    }
 }
