@@ -72,7 +72,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto d-inline-flex align-items-center">
                         <li class="nav-item">
-                            <a href="{{ url('/') }}">Home</a>
+                            <a href="{{ url('home') }}">Home</a>
                         </li>
                         <li class="nav-item ml-4">
                             <a href="{{ route('api:token') }}">API Token</a>
