@@ -35,8 +35,11 @@
         <div class="col-sm-8">
             <div class="card">
                 <div class="card-body">
-                    <input class="border border-white" type="text" placeholder="Enter amount" >
-                    <a class="btn btn-primary" href="">Donate!</a>
+                    <form action="{{ route('donate:store') }}" method="post">
+                        @csrf
+                        <input class="border border-white" type="text" placeholder="Enter amount" name="amount">
+                        <button type="submit" class="btn btn-primary">Donate!</button>
+                    </form>
                 </div>
             </div>
         </div>
