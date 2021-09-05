@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+<style>
+    h2, h4, .card-body {
+        color: white;
+    }
+</style>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -32,6 +37,15 @@
                             Polygon coordinates of each places
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-5">
+            <div class="card text-center">
+                <div class="card-body">
+                    <a href="{{ route('donate:index') }}" class="btn btn-outline-primary"><i class='bx bx-coffee-togo' style='color:#ffffff'  ></i> Donate for my coffee money</a>
                 </div>
             </div>
         </div>
