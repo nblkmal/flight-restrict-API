@@ -25,6 +25,11 @@
         /* border: white; */
         color: #ffffff
     }
+    
+    @font-face {
+        font-family: OptimusPrinceps;
+        src: url('{{ public_path('fonts/bankmy.tff') }}');
+    }
 </style>
 @section('content')
 <div class="container">
@@ -37,7 +42,24 @@
                 <div class="card-body">
                     <form action="{{ route('donate:store') }}" method="post">
                         @csrf
-                        <input class="border border-white" type="text" placeholder="Enter amount" name="amount">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Amount</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter amount" name="amount" required>
+                            {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="exampleInputEmail1">Name</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+                                <small id="emailHelp" class="form-text text-muted">So we can appreciate our donaters :)</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                        </div>
+                        {{-- <input class="border border-white" type="text" placeholder="Enter amount" name="amount" required> --}}
                         <button type="submit" class="btn btn-primary">Donate!</button>
                     </form>
                 </div>
@@ -45,28 +67,24 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-sm-8 row border">
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        bank
+        <div class="col-sm-8 row">
+            @foreach ($banks as $bank)
+                <div class="col-sm-4">
+                    <div class="card m-1" type="button">
+                        <div class="card-body text-center">
+                            <input type="hidden" value="{{ $bank['CODE'] }}">
+                            {{-- if  --}}
+                            @if ($bank['NAME'] == 'Affin Bank')
+                                <div class="icon icon-affinbank"></div>
+                            @elseif ($bank['NAME'] == 'CIMB Clicks')
+                                <div class="icon icon-cimb besars" style="color: white"></div>
+                            @endif
+                            
+                            <p class="m-0">{{ $bank['NAME'] }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        bank
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        bank
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     
