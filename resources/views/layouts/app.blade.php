@@ -13,6 +13,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <link rel="stylesheet" href="{{ asset('css/bankmy.css') }}">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -24,21 +26,21 @@
 
 <style>
     body {
-        background-color: #222831;
+        background-color: #ffffff;
         font-family: 'Montserrat', sans-serif;
     }
 
     a, label, h1, p{
-        color: white;
+        color: #c4a35a;
     }
 
     a:hover {
-        color: #D65A31;
+        color: #c4a35a;
         text-decoration: none;
     }
 
     .card {
-        background-color: #393E46 !important;
+        background-color: #4a536b !important;
         border-radius: 15px !important;
     }
 
