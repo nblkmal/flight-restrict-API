@@ -15,7 +15,10 @@ class DonateController extends Controller
      */
     public function index()
     {
-        return view('donate.index');
+        $response = Http::get('https://dev.toyyibpay.com/index.php/api/getBankFPX');
+        $banks = $response->json();
+        // dd($banks);
+        return view('donate.index', compact('banks'));
     }
 
     /**
@@ -36,6 +39,10 @@ class DonateController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'amount' => 'required|min:1',
+        ]);
+
         // multiply input amount with 100
         $amount = $request->amount * 100;
 
@@ -44,6 +51,9 @@ class DonateController extends Controller
             'user_id' => auth()->user()->id,
             'amount' => $amount,
         ]);
+
+        // Get current device host
+        $host = $request->getSchemeAndHttpHost();
 
         // create bill at toyyibpay
         $url = 'https://dev.toyyibpay.com/index.php/api/createBill';
@@ -55,8 +65,8 @@ class DonateController extends Controller
             'billDescription' => 'Donation from '.auth()->user()->name,
             'billPriceSetting' => 1,
             'billAmount' => $amount,
-            'billReturnUrl' => 'http://127.0.0.1:8888/return-url',
-            'billCallbackUrl' => 'http://127.0.0.1:8888/call-back-url',
+            'billReturnUrl' => $host.'/return-url',
+            'billCallbackUrl' => $host.'/call-back-url',
             'billExternalReferenceNo' => $donate->id,
             'billTo' => auth()->user()->name,
             'billEmail' => auth()->user()->email,
@@ -70,6 +80,13 @@ class DonateController extends Controller
 
         return 'https://dev.toyyibpay.com/'.$donate->toyyibPay_bill_code;
         // return redirect()->route('home');
+    }
+
+    public function payBank()
+    {
+        // $toyyibpay
+
+        // return 
     }
 
     /**
