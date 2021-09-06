@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use config;
 use App\Models\Donate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -19,6 +20,16 @@ class DonateController extends Controller
         $banks = $response->json();
         // dd($banks);
         return view('donate.index', compact('banks'));
+    }
+
+    public function bank(Donate $donate)
+    {
+        $billCode = $donate->toyyibPay_bill_code;
+        // dd($billCode);
+        $response = Http::get('https://dev.toyyibpay.com/index.php/api/getBankFPX');
+        $banks = $response->json();
+
+        return view('donate.payment', compact('billCode', 'banks'));
     }
 
     /**
@@ -78,15 +89,26 @@ class DonateController extends Controller
             'toyyibPay_bill_code' => $response->json()[0]['BillCode'],
         ]);
 
-        return 'https://dev.toyyibpay.com/'.$donate->toyyibPay_bill_code;
-        // return redirect()->route('home');
+        // return 'https://dev.toyyibpay.com/'.$donate->toyyibPay_bill_code;
+        return redirect()->route('donate:bank', $donate);
     }
 
-    public function payBank()
+    public function payBank(Request $request)
     {
-        // $toyyibpay
+        // $toyyibpay_secret_key = config('services.toyyibpay.secret');
+        $toyyibpay_secret_key = 'czbbbpan-1b56-8is1-65cl-wjoun02tycye';
+        
+        $response = Http::asForm()->post('https://dev.toyyibpay.com/index.php/api/runBill', [
+            'userSecretKey' => $toyyibpay_secret_key,
+            'billCode' => $request->billCode,
+            // 'billpaymentAmount' => $donate->amount,
+            // 'billpaymentPayorName' => auth()->user()->name,
+            // 'billpaymentPayorPhone' => '0124441998',
+            // 'billpaymentPayorEmail' => auth()->user()->email,
+            'billBankID' => $request->bankID,
+        ]);
 
-        // return 
+        return $response; 
     }
 
     /**
