@@ -34,7 +34,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <h1>Thank you for donating</h1>
+        <h1>Thank you {{ $donater }} for donating</h1>
     </div>
 </div>
 @endsection
