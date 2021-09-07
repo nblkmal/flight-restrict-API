@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 <style>
-    h2, h4, .card-body {
+    /* h2, h4, .card-body {
         color: white;
-    }
+    } */
 </style>
 @section('content')
 <div class="container">
@@ -15,7 +15,7 @@
                     <h2>Hi Admin! Welcome to Flight Restriction API</h2>
 
                 @else
-                    <h2>Hi {{ auth()->user()->name }} ! Welcome to Flight Restriction API</h2>
+                    <h2>Hi {{ auth()->user()->name ?? 'everyone' }} ! Welcome to Flight Restriction API</h2>
                     <small>This is normal user</small>
                 @endrole
             </div>
