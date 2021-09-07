@@ -26,3 +26,6 @@ Route::get('/donate', [App\Http\Controllers\DonateController::class, 'index'])->
 Route::post('/donate/store', [App\Http\Controllers\DonateController::class, 'store'])->name('donate:store');
 Route::get('/donate/bank/{donate}', [App\Http\Controllers\DonateController::class, 'bank'])->name('donate:bank');
 Route::get('/pay', [App\Http\Controllers\DonateController::class, 'payBank'])->name('donate:pay');
+
+Route::get('/return-url', [App\Http\Controllers\ReturnController::class, 'index'])->name('return-url');
+Route::get('/callback-url', [App\Http\Controllers\CallbackController::class, 'index'])->name('callback-url');
