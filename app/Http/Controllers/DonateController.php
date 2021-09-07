@@ -66,18 +66,22 @@ class DonateController extends Controller
         // Get current device host
         $host = $request->getSchemeAndHttpHost();
 
+        $toyyibpay_secret_key = config('services.toyyibpay.secret');
+
         // create bill at toyyibpay
         $url = 'https://dev.toyyibpay.com/index.php/api/createBill';
 
         $response = Http::asForm()->post($url, [
-            'userSecretKey' => 'czbbbpan-1b56-8is1-65cl-wjoun02tycye',
+            'userSecretKey' => $toyyibpay_secret_key,
             'categoryCode' => 'rbvw3ia4',
             'billName' => auth()->user()->name,
             'billDescription' => 'Donation from '.auth()->user()->name,
             'billPriceSetting' => 1,
             'billAmount' => $amount,
-            'billReturnUrl' => $host.'/return-url',
-            'billCallbackUrl' => $host.'/call-back-url',
+            // 'billReturnUrl' => $host.'/return-url',
+            'billReturnUrl' => route('return-url'),
+            // 'billCallbackUrl' => $host.'/call-back-url',
+            'billCallbackUrl' => route('callback-url'),
             'billExternalReferenceNo' => $donate->id,
             'billTo' => auth()->user()->name,
             'billEmail' => auth()->user()->email,
@@ -95,8 +99,7 @@ class DonateController extends Controller
 
     public function payBank(Request $request)
     {
-        // $toyyibpay_secret_key = config('services.toyyibpay.secret');
-        $toyyibpay_secret_key = 'czbbbpan-1b56-8is1-65cl-wjoun02tycye';
+        $toyyibpay_secret_key = config('services.toyyibpay.secret');
         
         $response = Http::asForm()->post('https://dev.toyyibpay.com/index.php/api/runBill', [
             'userSecretKey' => $toyyibpay_secret_key,
