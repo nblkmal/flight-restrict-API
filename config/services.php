@@ -31,7 +31,7 @@ return [
     ],
 
     'toyyibpay' => [
-        'secret' => env('TOYYIBPAY_SECRET_KEY ')
+        'secret' => env('TOYYIBPAY_SECRET_KEY')
     ]
 
 ];
