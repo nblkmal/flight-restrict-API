@@ -31,16 +31,16 @@
     }
 
     a, label, h1, p{
-        color: #c4a35a;
+        color: #4a536b;
     }
 
     a:hover {
-        color: #c4a35a;
+        color: #4a536b;
         text-decoration: none;
     }
 
     .card {
-        background-color: #4a536b !important;
+        /* background-color: #4a536b !important; */
         border-radius: 15px !important;
     }
 
@@ -55,7 +55,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm py-3">
+        <nav class="navbar navbar-expand-md navbar-light py-3">
             <div class="container">
                 <a class="" href="{{ url('/') }}" style="font-weight: 600; color: #D65A31;">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
@@ -96,6 +96,9 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item ml-4">
+                                <a class="" href="{{ route('register') }}">Data</a>
+                            </li>
                             <li class="nav-item dropdown ml-4">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
