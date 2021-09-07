@@ -16,9 +16,9 @@ class PlacesImport implements ToModel
     {
         return new Place([
             'name'     => $row[0],
-            'state'    => $row[1],
-            'description'    => $row[2],
+            'state_id'    => $row[1],
             'type_id'    => $row[3],
+            'category_id'    => $row[4],
         ]);
     }
 }
