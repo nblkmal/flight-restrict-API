@@ -44,13 +44,13 @@
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Amount</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter amount" name="amount" required>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter amount" name="amount" required>
                             {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
                                 <small id="emailHelp" class="form-text text-muted">So we can appreciate our donaters :)</small>
                             </div>
                             <div class="col-sm-6">
