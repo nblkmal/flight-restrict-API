@@ -10,6 +10,7 @@ class Donate extends Model
     use HasFactory;
 
     protected $fillable = [
+        'uuid',
         'user_id',
         'amount',
         'payment_status',
