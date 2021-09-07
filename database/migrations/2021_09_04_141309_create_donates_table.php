@@ -16,12 +16,15 @@ class CreateDonatesTable extends Migration
         Schema::create('donates', function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('uuid')->nullable();
-            $table->foreignId('user_id')->on('users');
             $table->integer('amount');
             $table->boolean('payment_status')->default(false);
             $table->string('toyyibPay_bill_code')->nullable();
             $table->timestamps();
+
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
+
     }
 
     /**
