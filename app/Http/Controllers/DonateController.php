@@ -59,10 +59,11 @@ class DonateController extends Controller
 
         // store donation
         $donate = Donate::create([
-            'user_id' => auth()->user()->id,
+            'user_id' => auth()->user()->id ?? null,
             'amount' => $amount,
         ]);
 
+        // dd($request->all());
         // Get current device host
         $host = $request->getSchemeAndHttpHost();
 
@@ -74,17 +75,17 @@ class DonateController extends Controller
         $response = Http::asForm()->post($url, [
             'userSecretKey' => $toyyibpay_secret_key,
             'categoryCode' => 'rbvw3ia4',
-            'billName' => auth()->user()->name,
-            'billDescription' => 'Donation from '.auth()->user()->name,
+            'billName' => auth()->user()->name ?? $request->name,
+            'billDescription' => 'Donation from '.$request->name,
             'billPriceSetting' => 1,
             'billAmount' => $amount,
             // 'billReturnUrl' => $host.'/return-url',
             'billReturnUrl' => route('return-url'),
             // 'billCallbackUrl' => $host.'/call-back-url',
             'billCallbackUrl' => route('callback-url'),
-            'billExternalReferenceNo' => $donate->id,
-            'billTo' => auth()->user()->name,
-            'billEmail' => auth()->user()->email,
+            'billExternalReferenceNo' => $donate->uuid.$donate->id,
+            'billTo' => auth()->user()->name ?? $request->name,
+            'billEmail' => auth()->user()->email ?? $request->email,
             'billPhone' => '0124441998',
         ]);
 
