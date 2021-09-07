@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Donate;
+use App\Observers\DonateObserver;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
