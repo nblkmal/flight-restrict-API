@@ -27,5 +27,11 @@ Route::post('/donate/store', [App\Http\Controllers\DonateController::class, 'sto
 Route::get('/donate/bank/{donate}', [App\Http\Controllers\DonateController::class, 'bank'])->name('donate:bank');
 Route::get('/pay', [App\Http\Controllers\DonateController::class, 'payBank'])->name('donate:pay');
 
+Route::get('/file-import', [App\Http\Controllers\FileController::class, 'index'])->name('file:import');
+Route::post('/file-import/places', [App\Http\Controllers\FileController::class, 'places'])->name('file:import_places');
+Route::post('/file-import/coordinates', [App\Http\Controllers\FileController::class, 'coordinates'])->name('file:import_coordinates');
+
+Route::post('/file-export/states', [App\Http\Controllers\FileController::class, 'statesExport'])->name('file:export_states');
+
 Route::get('/return-url', [App\Http\Controllers\ReturnController::class, 'index'])->name('return-url');
 Route::get('/callback-url', [App\Http\Controllers\CallbackController::class, 'index'])->name('callback-url');
