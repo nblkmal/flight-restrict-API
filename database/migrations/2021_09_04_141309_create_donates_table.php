@@ -15,6 +15,7 @@ class CreateDonatesTable extends Migration
     {
         Schema::create('donates', function (Blueprint $table) {
             $table->increments('id');
+            $table->uuid('uuid')->nullable();
             $table->foreignId('user_id')->on('users');
             $table->integer('amount');
             $table->boolean('payment_status')->default(false);
