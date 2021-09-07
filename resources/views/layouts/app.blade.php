@@ -97,7 +97,7 @@
                             @endif
                         @else
                             <li class="nav-item ml-4">
-                                <a class="" href="{{ route('register') }}">Data</a>
+                                <a class="" href="{{ route('file:import') }}">Data</a>
                             </li>
                             <li class="nav-item dropdown ml-4">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
