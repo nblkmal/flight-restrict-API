@@ -33,8 +33,11 @@
 </style>
 @section('content')
 <div class="container">
-    <div class="row">
-        <h1>Proceed to donate me coffee money!</h1>
+    <div class="row justify-content-center my-4">
+        <div class="col-sm-8 text-center">
+            <h1><strong>Proceed to donate me coffee money!<strong></h1>
+        </div>
+        
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-8">
