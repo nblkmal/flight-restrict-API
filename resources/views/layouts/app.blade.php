@@ -160,7 +160,7 @@
               {{-- <span class="text-muted">Place sticky footer content here.</span> --}}
                 <div class="card text-center">
                     <div class="card-body">
-                        <button href="{{ route('donate:index') }}" class="btn">
+                        <button onclick="window.location='{{ route('donate:index') }}'" class="btn">
                             <i class='bx bx-coffee-togo'></i>
                             <strong>Donate for my coffee money</strong>
 
