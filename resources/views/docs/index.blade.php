@@ -36,7 +36,7 @@
             <div class="card" style="background-color: none !important;">
                 <div class="card-body p-0 ">
                     <div class="row method m-3 align-items-center">
-                        <button class="btn btn-outline-primary px-5">GET</button>
+                        <button class="btn px-5">GET</button>
                         <input class="ml-4" type="text" id="url-places" value="api/v1/places" readonly>
                         <i class='bx bxs-copy box--end mr-4' onclick="myFunction('url-places')" data-toggle="tooltip" data-placement="top" title="Copy" type="button" style='color:#ffffff'  ></i>
                     </div>
@@ -45,7 +45,7 @@
             <div class="card my-2" style="background-color: none !important;">
                 <div class="card-body p-0 ">
                     <div class="flex-row method m-3 align-items-center">
-                        <button class="btn btn-outline-primary px-5">GET</button>
+                        <button class="btn px-5">GET</button>
                         <input class="ml-4" type="text" id="url-coords" value="api/v1/coordinates" readonly>
                         <i class='bx bxs-copy box--end mr-4' onclick="myFunction('url-coords')" data-toggle="tooltip" data-placement="top" title="Copy" type="button" style='color:#ffffff'  ></i>
                     </div>

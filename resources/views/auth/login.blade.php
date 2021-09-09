@@ -57,8 +57,8 @@
 
                         <div class="row mb-0 justify-content-center">
                             <div class="col-md-8 text-center">
-                                <button type="submit" class="btn btn-block" style="background-color: #D65A31; border: none">
-                                    {{ __('Login') }}
+                                <button type="submit" class="btn btn-block" >
+                                    <strong>{{ __('Login') }}</strong>
                                 </button>
 
                                 @if (Route::has('password.request'))

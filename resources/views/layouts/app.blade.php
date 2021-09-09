@@ -26,30 +26,58 @@
 
 <style>
     body {
-        background-color: #ffffff;
+        background-color: #f7f7f8;
         font-family: 'Montserrat', sans-serif;
     }
 
     a, label, h1, p{
-        color: #4a536b;
+        color: #434b57;
     }
 
     a:hover {
-        color: #4a536b;
+        color: #7953f5;
         text-decoration: none;
     }
 
     .card {
-        /* background-color: #4a536b !important; */
+        background-color: white !important;
+        border: none;
         border-radius: 15px !important;
     }
 
-    button{
+    .title {
+        border-color: #7953f5 !important;
+        border-radius: 10px !important;
+        border-width: 2px !important;
+    }
+
+    button, .btn{
+        color: #f7f7f8 !important;
+        border: none;
+        background-color: #7953f5 !important;
         border-radius: 10px !important;
     }
 
+    button:hover, i:hover {
+        background-color: #f7f7f8 !important;
+        color: #434b57 !important;
+    }
+
     input {
-        border-radius: 5px !important;
+        border-radius: 10px !important;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 5px;
+        /* padding: 10px; */
+        background-color: white;
+        border-radius: 10px !important;
+        color: white;
+        text-align: center;
     }
 </style>
 
@@ -57,7 +85,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light py-3">
             <div class="container">
-                <a class="" href="{{ url('/') }}" style="font-weight: 600; color: #D65A31;">
+                <a class="border p-2 title" href="{{ url('/') }}" style="font-weight: 600; color: #7953f5;">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                     Flight Restrict API
                 </a>
@@ -126,6 +154,24 @@
         <main class="py-4">
             @yield('content')
         </main>
+        
+        <footer class="footer">
+            <div class="container">
+              {{-- <span class="text-muted">Place sticky footer content here.</span> --}}
+                <div class="card text-center">
+                    <div class="card-body">
+                        <button href="{{ route('donate:index') }}" class="btn">
+                            <i class='bx bx-coffee-togo'></i>
+                            <strong>Donate for my coffee money</strong>
+
+                        </button>
+                        
+                    </div>
+                </div>
+                <small class="p-3"><a href="https://nblkmal.dev/">nblkmal.dev</a></small>
+            </div>
+          </footer>
     </div>
+    
 </body>
 </html>
