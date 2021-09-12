@@ -49,7 +49,7 @@
                     <h2 class="mb-2" style="color: #414141; font-family: poppins; font-weight: bold;">
                         {{-- <i class="btn fas fa-angle-left fa-lg pr-4" onclick="window.location='{{ url()->previous() }}'"></i> --}}
                     Upload File For Coordinates</h2>
-                    {{-- <form action="{{ route('import:parliament') }}" method="POST" enctype="multipart/form-data"> --}}
+                    <form action="{{ route('file:import_coordinates') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
                             <div class="custom-file text-left">
@@ -59,7 +59,7 @@
                         </div>
                         <button class="btn btn-primary">Import data</button>
                         {{-- <a class="btn btn-success" href="{{ route('file-export') }}">Export data</a> --}}
-                    {{-- </form> --}}
+                    </form>
                 </div>
             </div>
         </div>
