@@ -45,6 +45,10 @@
         border-radius: 15px !important;
     }
 
+    .rounded-link {
+        border-radius: 5px !important;
+    }
+
     .title {
         border-color: #7953f5 !important;
         border-radius: 10px !important;
