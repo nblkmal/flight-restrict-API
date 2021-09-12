@@ -17,7 +17,7 @@ class PlaceController extends Controller
         {
             $places = Place::where('name', 'LIKE', '%'.$request->search.'%')->get();
         } else {
-            $places = Place::with('type')->get();
+            $places = Place::with('type', 'coordinates')->get();
         }
         // dd($places);
         return response()->json([
@@ -25,16 +25,5 @@ class PlaceController extends Controller
             'message' => 'Success fetch all places',
             'data' => $places
         ]);
-    }
-
-    public function fileImportExport()
-    {
-        return view('file.import');
-    }
-
-    public function fileImport(Request $request) 
-    {
-        Excel::import(new PlacesImport, $request->file('file')->store('temp'));
-        return back();
     }
 }
