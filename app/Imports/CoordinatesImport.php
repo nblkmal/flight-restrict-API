@@ -15,7 +15,9 @@ class CoordinatesImport implements ToModel
     public function model(array $row)
     {
         return new Coordinate([
-            //
+            'latitude' => $row[0],
+            'longitude' => $row[1],
+            'place_id' => $row[2]
         ]);
     }
 }
