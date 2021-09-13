@@ -36,6 +36,7 @@
         background-color: #e2e2e2;
         padding: 0.3rem !important;
     }
+
 </style>
 @section('content')
 <div class="container">
@@ -71,15 +72,14 @@
                     
                     <p>For Laravel usage, please get an API Token to get your personal token.</p>
                     <p>Refer to this documentation <a class="link rounded-link" href="https://laravel.com/docs/8.x/http-client">Laravel HTTP Client</a></p>
-                    <p><kbd>$response = Http::get('http://example.com');</kbd></p>
+                    
                     <p>
                         <kbd>
-                            $response = Http::withHeaders([
-                                'Accept' => 'application/json',
-                                'Authorization' => 'Bearer <--Personal Access Token-->'
-                            ])
+                            $response = Http::withHeaders([ 'Accept' => 'application/json',
                         </kbd>
                     </p>
+                    <p><kbd class="">'Authorization' => 'Bearer <--Personal Access Token-->']);</kbd></p>
+                    <p><kbd>->get('http://example.com');</kbd></p>
                     
                 </div>
             </div>
