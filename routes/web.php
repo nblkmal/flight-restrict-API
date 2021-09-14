@@ -26,6 +26,7 @@ Route::get('/donate', [App\Http\Controllers\DonateController::class, 'index'])->
 Route::post('/donate/store', [App\Http\Controllers\DonateController::class, 'store'])->name('donate:store');
 Route::get('/donate/bank/{donate}', [App\Http\Controllers\DonateController::class, 'bank'])->name('donate:bank');
 Route::get('/pay', [App\Http\Controllers\DonateController::class, 'payBank'])->name('donate:pay');
+Route::get('/maps', [App\Http\Controllers\MapsController::class, 'index'])->name('map:index');
 
 Route::get('/file-import', [App\Http\Controllers\FileController::class, 'index'])->name('file:import');
 Route::post('/file-import/places', [App\Http\Controllers\FileController::class, 'places'])->name('file:import_places');
