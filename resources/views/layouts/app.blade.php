@@ -114,6 +114,9 @@
                         <li class="nav-item ml-4">
                             <a href="{{ route('api:docs') }}">API Docs</a>
                         </li>
+                        <li class="nav-item ml-4">
+                            <a href="{{ route('map:index') }}">Maps</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
