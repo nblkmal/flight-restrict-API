@@ -45,16 +45,37 @@
                 <div class="card-body">
                     <form action="{{ route('donate:store') }}" method="post">
                         @csrf
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Amount</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter amount" name="amount" required>
-                            {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-                        </div>
                         <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="exampleInputEmail1">Amount</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">RM</span>
+                                    </div>
+                                    <input type="text" class="form-control @error('amount') is-invalid @enderror" aria-label="Amount (to the nearest dollar)" name=amount>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">.00</span>
+                                    </div>
+                                </div>
+                                @error('amount')
+                                    <div class="alert alert-danger">
+                                        <small>
+                                            {{ $message }}
+                                        </small>
+                                    </div>
+                                @enderror
+                            </div>
                             <div class="col-sm-6">
                                 <label for="exampleInputEmail1">Name</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="name">
                                 <small id="emailHelp" class="form-text text-muted">So we can appreciate our donaters :)</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="exampleInputEmail1">Phone <small>(Optional)</small></label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="012xxxxxxx" name="phone">
+                                <small id="emailHelp" class="form-text text-muted">Maybe we can do some collaboration :)</small>
                             </div>
                             <div class="col-sm-6">
                                 <label for="exampleInputEmail1">Email</label>
@@ -63,7 +84,7 @@
                             </div>
                         </div>
                         {{-- <input class="border border-white" type="text" placeholder="Enter amount" name="amount" required> --}}
-                        <button type="submit" class="btn btn-primary">Donate!</button>
+                        <button type="submit" class="btn btn-primary btn-block">Donate!</button>
                     </form>
                 </div>
             </div>
