@@ -59,7 +59,10 @@ class DonateController extends Controller
 
         // store donation
         $donate = Donate::create([
-            'user_id' => auth()->user()->id ?? null,
+            // 'user_id' => auth()->user()->id ?? null,
+            'name' => auth()->user()->name ?? $request->name,
+            'email' => auth()->user()->email ?? $request->email,
+            'phone' => $request->phone,
             'amount' => $amount,
         ]);
 
@@ -86,13 +89,14 @@ class DonateController extends Controller
             'billExternalReferenceNo' => $donate->uuid.$donate->id,
             'billTo' => auth()->user()->name ?? $request->name,
             'billEmail' => auth()->user()->email ?? $request->email,
-            'billPhone' => '0124441998',
+            'billPhone' => $request->phone,
         ]);
 
         // update purchase with toyyibPay bill code
         $donate->update([
             'toyyibPay_bill_code' => $response->json()[0]['BillCode'],
         ]);
+        // dd($donate);
 
         // return 'https://dev.toyyibpay.com/'.$donate->toyyibPay_bill_code;
         return redirect()->route('donate:bank', $donate);
