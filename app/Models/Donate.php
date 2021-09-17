@@ -11,7 +11,9 @@ class Donate extends Model
 
     protected $fillable = [
         'uuid',
-        'user_id',
+        'name',
+        'email',
+        'phone',
         'amount',
         'payment_status',
         'toyyibPay_bill_code',
