@@ -16,17 +16,17 @@ class DonateController extends Controller
      */
     public function index()
     {
-        $response = Http::get('https://dev.toyyibpay.com/index.php/api/getBankFPX');
-        $banks = $response->json();
-        // dd($banks);
-        return view('donate.index', compact('banks'));
+        // $url = config('services.toyyibpay.url')."getBanks";
+        // dd($url);
+        return view('donate.index');
     }
 
     public function bank(Donate $donate)
     {
         $billCode = $donate->toyyibPay_bill_code;
-        // dd($billCode);
-        $response = Http::get('https://dev.toyyibpay.com/index.php/api/getBankFPX');
+        $url = config('services.toyyibpay.url')."getBankFPX";
+
+        $response = Http::get($url);
         $banks = $response->json();
 
         return view('donate.payment', compact('billCode', 'banks'));
@@ -73,14 +73,16 @@ class DonateController extends Controller
         $toyyibpay_secret_key = config('services.toyyibpay.secret');
 
         // create bill at toyyibpay
-        $url = 'https://dev.toyyibpay.com/index.php/api/createBill';
+        $url = config('services.toyyibpay.url')."createBill";
+        // $url = 'https://toyyibpay.com/index.php/api/createBill';
 
         $response = Http::asForm()->post($url, [
             'userSecretKey' => $toyyibpay_secret_key,
-            'categoryCode' => 'rbvw3ia4',
+            'categoryCode' => 'ngyst0c1',
             'billName' => auth()->user()->name ?? $request->name,
             'billDescription' => 'Donation from '.$request->name,
             'billPriceSetting' => 1,
+            'billPayorInfo' => 1,
             'billAmount' => $amount,
             // 'billReturnUrl' => $host.'/return-url',
             'billReturnUrl' => route('return-url'),
@@ -90,23 +92,23 @@ class DonateController extends Controller
             'billTo' => auth()->user()->name ?? $request->name,
             'billEmail' => auth()->user()->email ?? $request->email,
             'billPhone' => $request->phone,
+            'billContentEmail'=>'Thank you for donating!',
         ]);
-
+        // dd($response->json());
         // update purchase with toyyibPay bill code
         $donate->update([
             'toyyibPay_bill_code' => $response->json()[0]['BillCode'],
         ]);
-        // dd($donate);
 
-        // return 'https://dev.toyyibpay.com/'.$donate->toyyibPay_bill_code;
         return redirect()->route('donate:bank', $donate);
     }
 
     public function payBank(Request $request)
     {
         $toyyibpay_secret_key = config('services.toyyibpay.secret');
+        $url = config('services.toyyibpay.url')."runBill";
         
-        $response = Http::asForm()->post('https://dev.toyyibpay.com/index.php/api/runBill', [
+        $response = Http::asForm()->post($url, [
             'userSecretKey' => $toyyibpay_secret_key,
             'billCode' => $request->billCode,
             // 'billpaymentAmount' => $donate->amount,
