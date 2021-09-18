@@ -70,51 +70,53 @@
                         @foreach ($banks as $bank)
                             <form action="{{ route('donate:pay') }}" method="get">
                                 @csrf
-                                <div class="card-body">
+                                <div class="card-body text-center">
                                     @if ($bank['NAME'] == 'Affin Bank')
-                                        <img src="{{ asset('images/logo/affin.svg') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/affin.svg') }}" width="180px" alt="">
+                                    @elseif ($bank['NAME'] == 'Agro Bank (Offline)')
+                                        <input type="image" src="{{ asset('images/logo/agrobank.png') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'Alliance Bank')
-                                        <img src="{{ asset('images/logo/alliance.png') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/alliance.png') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'AmBank')
-                                        <img src="{{ asset('images/logo/ambank.png') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/ambank.png') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'Bank Islam')
-                                        <img src="{{ asset('images/logo/bankislam.svg') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/bankislam.svg') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'Bank Muamalat')
-                                        <img src="{{ asset('images/logo/muamalat.png') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/muamalat.png') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'Bank Rakyat')
-                                        <img src="{{ asset('images/logo/rakyat.png') }}" width="180px" alt="">
-                                    @elseif ($bank['NAME'] == 'BSN')
-                                        <img src="{{ asset('images/logo/bsn.png') }}" width="180px" alt="">
-                                    @elseif ($bank['NAME'] == 'CIMB Clicks')
-                                        <img src="{{ asset('images/logo/cimb.png') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/rakyat.png') }}" width="180px" alt="">
+                                    @elseif ($bank['NAME'] == 'Bank Simpanan Nasional')
+                                        <input type="image" src="{{ asset('images/logo/bsn.png') }}" width="180px" alt="">
+                                    @elseif ($bank['NAME'] == 'CIMB Bank')
+                                        <input type="image" src="{{ asset('images/logo/cimb.png') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'Hong Leong Bank')
-                                        <img src="{{ asset('images/logo/hongleong.png') }}" width="180px" alt="">
-                                    @elseif ($bank['NAME'] == 'HSBC (Offline)')
-                                        <img src="{{ asset('images/logo/hsbc.png') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/hongleong.png') }}" width="180px" alt="">
+                                    @elseif ($bank['NAME'] == 'HSBC')
+                                        <input type="image" src="{{ asset('images/logo/hsbc.png') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'KFH')
-                                        <img src="{{ asset('images/logo/kuwait.svg') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/kuwait.svg') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'Maybank2E')
-                                        <img src="{{ asset('images/logo/maybank2e.jpg') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/maybank2e.jpg') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'Maybank2U')
-                                        <img src="{{ asset('images/logo/maybank2u.gif') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/maybank2u.gif') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'OCBC Bank')
-                                        <img src="{{ asset('images/logo/ocbc.png') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/ocbc.png') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'Public Bank')
-                                        <img src="{{ asset('images/logo/public.png') }}" width="180px" alt="">
-                                    @elseif ($bank['NAME'] == 'RHB Bank (Offline)')
-                                        <img src="{{ asset('images/logo/rhb.png') }}" width="180px" alt="">
-                                    @elseif ($bank['NAME'] == 'Standard Chartered (Offline)')
-                                        <img src="{{ asset('images/logo/standard.png') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/public.png') }}" width="180px" alt="">
+                                    @elseif ($bank['NAME'] == 'RHB Bank')
+                                        <input type="image" src="{{ asset('images/logo/rhb.png') }}" width="180px" alt="">
+                                    @elseif ($bank['NAME'] == 'Standard Chartered')
+                                        <input type="image" src="{{ asset('images/logo/standard.png') }}" width="180px" alt="">
                                     @elseif ($bank['NAME'] == 'UOB Bank')
-                                        <img src="{{ asset('images/logo/uob.png') }}" width="180px" alt="">
+                                        <input type="image" src="{{ asset('images/logo/uob.png') }}" width="180px" alt="">
                                     @endif
 
                                     <input type="hidden" name="billCode" value="{{ $billCode }}">
                                     <input type="hidden" name="bankID" value="{{ $bank['CODE'] }}">
-                                    {{ $bank['NAME'] }}
-                                    <button type="submit" class="float-right">
-                                        <i class='bx bxs-right-arrow-circle bx-sm' style="color: #393E46"></i>
-                                    </button>
+                                    {{-- {{ $bank['NAME'] }} --}}
+                                    {{-- <button type="submit" class="float-right"> --}}
+                                        {{-- <i type="submit" class='bx bxs-right-arrow-circle bx-sm' style="color: #393E46"></i> --}}
+                                    {{-- </button> --}}
                                 </div>
                             </form>
                         @endforeach
