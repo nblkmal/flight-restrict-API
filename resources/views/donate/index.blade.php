@@ -67,7 +67,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="name">
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="name" required>
                                 <small id="emailHelp" class="form-text text-muted">So we can appreciate our donaters :)</small>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="exampleInputEmail1">Email</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
                         </div>
