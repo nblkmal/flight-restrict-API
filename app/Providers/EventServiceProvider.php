@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Models\Donate;
+use App\Observers\UserObserver;
 use App\Observers\DonateObserver;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
@@ -31,5 +33,6 @@ class EventServiceProvider extends ServiceProvider
     {
         //
         Donate::observe(DonateObserver::class);
+        User::observe(UserObserver::class);
     }
 }
