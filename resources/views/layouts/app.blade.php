@@ -105,12 +105,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto d-inline-flex align-items-center">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ url('home') }}">Home</a>
-                        </li>
-                        <li class="nav-item ml-4">
-                            <a href="{{ route('api:token') }}">API Token</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item ml-4">
                             <a href="{{ route('api:docs') }}">API Docs</a>
                         </li>
@@ -119,6 +116,7 @@
                         </li>
                         <!-- Authentication Links -->
                         @guest
+                            
                             @if (Route::has('login'))
                                 <li class="nav-item ml-4">
                                     <a class="" href="{{ route('login') }}">Login</a>
@@ -131,6 +129,9 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item ml-4">
+                                <a href="{{ route('api:token') }}">API Token</a>
+                            </li>
                             {{-- Buat policy untuk admin --}}
                             @role('admin')
                                 <li class="nav-item ml-4">

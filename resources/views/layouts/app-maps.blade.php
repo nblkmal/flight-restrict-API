@@ -105,12 +105,10 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto d-inline-flex align-items-center">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ url('home') }}">Home</a>
-                        </li>
-                        <li class="nav-item ml-4">
-                            <a href="{{ route('api:token') }}">API Token</a>
-                        </li>
+                        </li> --}}
+                        
                         <li class="nav-item ml-4">
                             <a href="{{ route('api:docs') }}">API Docs</a>
                         </li>
@@ -132,8 +130,13 @@
                             @endif
                         @else
                             <li class="nav-item ml-4">
-                                <a class="" href="{{ route('file:import') }}">Data</a>
+                                <a href="{{ route('api:token') }}">API Token</a>
                             </li>
+                            @role('admin')
+                                <li class="nav-item ml-4">
+                                    <a class="" href="{{ route('file:import') }}">Data</a>
+                                </li>
+                            @endrole
                             <li class="nav-item dropdown ml-4">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
