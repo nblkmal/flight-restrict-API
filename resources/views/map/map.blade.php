@@ -155,6 +155,62 @@ body { margin: 0; padding: 0; }
             }
         }
     });
+
+    map.on('style.load', function (e) {
+        map.addSource('markers', {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [-77.03238901390978, 38.913188059745586]
+                        },
+                        "properties": {
+                            "modelId": 1,
+                        },
+                    },
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [-122.414, 37.776]
+                        },
+                        "properties": {
+                            "modelId": 2,
+                        },
+                    }
+                ]
+            }
+        });
+        map.addLayer({
+            "id": "circles1",
+            "source": "markers",
+            "type": "circle",
+            "paint": {
+                "circle-radius": 10,
+                "circle-color": "#007cbf",
+                "circle-opacity": 0.5,
+                "circle-stroke-width": 0,
+            },
+            "filter": ["==", "modelId", 1],
+        });
+        map.addLayer({
+            "id": "circles2",
+            "source": "markers",
+            "type": "circle",
+            "paint": {
+                "circle-radius": 20,
+                "circle-opacity": 0,
+                "circle-stroke-width": 1,
+                "circle-stroke-color": "#00bf7c",
+                "circle-stroke-opacity": 1,
+            },
+            "filter": ["==", "modelId", 2],
+        });
+    });
 </script>
 
 </body>
