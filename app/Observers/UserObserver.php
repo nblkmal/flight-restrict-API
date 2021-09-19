@@ -20,14 +20,7 @@ class UserObserver
     }
     public function created(User $user)
     {
-        // $user->assignRole('user');
-        // DB::table('model_has_roles')->insert([
-        //     [
-        //         'role_id' => 1,
-        //         'model_type' => 'App\Models\User',
-        //         'model_id' => $user->id,
-        //     ]
-        // ]);
+        // 
     }
 
     /**
