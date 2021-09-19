@@ -11,7 +11,7 @@
 
                 @else
                     <h2>Hi {{ auth()->user()->name }} ! Welcome to Flight Restriction API</h2>
-                    <small>This is normal user</small>
+                    {{-- <small>This is normal user</small> --}}
                 @endrole
             </div>
             <div>
