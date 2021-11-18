@@ -26,4 +26,9 @@ class Place extends Model
         return $this->hasMany(Coordinate::class);
     }
 
+    public function states()
+    {
+        return $this->belongsTo(State::class, 'state_id');
+    }
+
 }
