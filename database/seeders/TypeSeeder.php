@@ -17,11 +17,11 @@ class TypeSeeder extends Seeder
         DB::table('types')->insert([
             [
                 'id' => 1,
-                'name' => 'point'
+                'name' => 'Point'
             ],
             [
                 'id' => 2,
-                'name' => 'polygon'
+                'name' => 'Polygon'
             ]
         ]);
     }
