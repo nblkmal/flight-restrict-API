@@ -63,6 +63,15 @@
                     </div>
                 </div>
             </div>
+            <div class="card my-2" style="background-color: none !important;">
+                <div class="card-body p-0 ">
+                    <div class="flex-row method m-3 align-items-center">
+                        <button class="btn px-5">GET</button>
+                        <input class="ml-4" type="text" id="url-geojson-coords" value="api/v1/geojson/getCoordinates" readonly>
+                        <i class='bx bxs-copy box--end mr-4' onclick="myFunction('url-geojson-coords')" data-toggle="tooltip" data-placement="top" title="Copy" type="button" style='color:#ffffff'  ></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row justify-content-center">
