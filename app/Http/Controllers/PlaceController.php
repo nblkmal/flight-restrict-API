@@ -23,11 +23,14 @@ class PlaceController extends Controller
         {
             $features[] = array(
                 'type' => 'Feature',
-                'properties' => array('name' => $coordinate->place->name),
+                'properties' => array(
+                    'name' => $coordinate->place->name,
+                    'category' => $coordinate->place->category->name,
+                ),
                 'geometry' => array(
                     'type' => $coordinate->place->type->name,
                     'coordinates' => [
-                        $coordinate->longitude, $coordinate->latitude
+                        floatval($coordinate->longitude), floatval($coordinate->latitude)
                     ],
                 ),
             );
@@ -39,7 +42,7 @@ class PlaceController extends Controller
         );
 
         $encoded = json_encode($geojson);
-        $fileName = time() . '_datafile.json';
+        $fileName = time() . '_datafile.geojson';
 
         // need to mention which disk if using storage
         $test = Storage::disk('public')->put('storage/upload/json/'.$fileName, $encoded);
