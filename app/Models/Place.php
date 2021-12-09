@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Place extends Model
 {
@@ -29,6 +30,11 @@ class Place extends Model
     public function states()
     {
         return $this->belongsTo(State::class, 'state_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
 }
