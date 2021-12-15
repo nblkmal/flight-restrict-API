@@ -8,6 +8,7 @@ use App\Exports\StatesExport;
 use App\Imports\PlacesImport;
 use App\Imports\CoordinatesImport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\NotamLocationsImport;
 
 class FileController extends Controller
 {
@@ -27,6 +28,12 @@ class FileController extends Controller
     public function coordinates(Request $request)
     {
         Excel::import(new CoordinatesImport, $request->file('file')->store('temp'));
+        return back()->with('success', 'Succesfully Added');
+    }
+
+    public function notam_locations(Request $request)
+    {
+        Excel::import(new NotamLocationsImport, $request->file('file')->store('temp'));
         return back()->with('success', 'Succesfully Added');
     }
 

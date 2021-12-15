@@ -33,6 +33,7 @@ Route::get('/maps', [App\Http\Controllers\MapsController::class, 'index'])->name
 Route::get('/file-import', [App\Http\Controllers\FileController::class, 'index'])->name('file:import');
 Route::post('/file-import/places', [App\Http\Controllers\FileController::class, 'places'])->name('file:import_places');
 Route::post('/file-import/coordinates', [App\Http\Controllers\FileController::class, 'coordinates'])->name('file:import_coordinates');
+Route::post('/file-import/notam_locations', [App\Http\Controllers\FileController::class, 'notam_locations'])->name('file:import_notam_locations');
 
 Route::post('/file-export/states', [App\Http\Controllers\FileController::class, 'statesExport'])->name('file:export_states');
 
