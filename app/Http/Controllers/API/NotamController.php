@@ -14,7 +14,7 @@ class NotamController extends Controller
         
         return response()->json([
             'success' => true,
-            'message' => 'Success fetch all coordinates',
+            'message' => 'Success fetch all Notam Locations & Codes',
             'data' => $location
         ]);
     }
