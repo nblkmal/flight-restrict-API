@@ -22,7 +22,10 @@ Route::prefix('v1')->middleware('auth:api')->group(function () {
     Route::get('/getPlaces', [App\Http\Controllers\API\PlaceController::class, 'index']);
     Route::get('/getCoordinates', [App\Http\Controllers\API\CoordinateController::class, 'index']);
     Route::get('/geojson/getCoordinates', [App\Http\Controllers\API\CoordinateController::class, 'geoJson']);
+    
 });
+
+Route::get('v1/getNotamLocation', [App\Http\Controllers\API\NotamController::class, 'location']);
 
 // --------------- Excel ---------------------------------
 Route::get('/places/file-import-export', [App\Http\Controllers\API\PlaceController::class, 'fileImportExport']);
